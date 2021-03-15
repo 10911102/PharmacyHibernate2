@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util.xsd">
+ 
+	<bean id="medicineDAO" class="com.medical.dao.MedicineDAO" autowire="byType"></bean> 
+	<bean id="doctorDao" class="com.medical.dao.DoctorDAO" autowire="byType"></bean>
+	<bean id="prescriptionDAO" class="com.medical.dao.PrescriptionDAO" autowire="byType" /> 
+	<bean id="pharmacyStockDAO" class="com.medical.dao.PharmacyStockDAO" autowire="byType" />
+	<bean id="orderDAO" class="com.medical.dao.OrderDAO" autowire="byType" />
+	
+	
+	<bean id="shop" class="com.medical.Shop.ShopOperations" autowire="byType" />
+	<bean id="doctorOp" class="com.medical.Shop.DoctorOperations" autowire="byType"></bean>
+	<bean id="orderOperations" class="com.medical.Shop.OrderOperations" autowire="byType">	</bean>
+	
+	<bean id="pharmacyProperties"
+		class="com.medical.pojo.PharmacyProperties">
+		<property name="name" value="${name}" />
+		<property name="licNo" value="${lic_no}" />
+		<property name="address" value="${address}" />
+		<property name="contact" value="${contact}" />
+	</bean>
+	
+<import resource="classpath:/hibernate-config.xml"/>
+
+</beans>
